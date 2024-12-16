@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+class Quadratic {
+    double r1, r2, disc;
+    int a, b, c;
+
+    void get() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the coefficients of the quadratic equation (a, b, c):");
+
+        // Read coefficient 'a'
+        do {
+            System.out.print("a (should not be 0): ");
+            a = s.nextInt();
+            if (a == 0) {
+                System.out.println("It should be a quadratic equation. Please enter a non-zero value for 'a'.");
+            }
+        } while (a == 0);
+
+        // Read coefficients 'b' and 'c'
+        System.out.print("b: ");
+        b = s.nextInt();
+        System.out.print("c: ");
+        c = s.nextInt();
+    }
+
+    void compute() {
+        disc = (b * b) - (4 * a * c);
+        if (disc == 0) {
+            r1 = r2 = (-b) / (2.0 * a);
+            System.out.println("Roots of the equation are: " + r1 + " and " + r2);
+        } else if (disc > 0) {
+            r1 = (-b + Math.sqrt(disc)) / (2.0 * a);
+            r2 = (-b - Math.sqrt(disc)) / (2.0 * a);
+            System.out.println("Roots of the equation are: " + r1 + " and " + r2);
+        } else {
+            System.out.println("There are no real solutions.");
+        }
+    }
+}
+
+class Quadratic1 {
+    public static void main(String args[]) {
+        Quadratic q = new Quadratic();
+        q.get();
+        q.compute();
+        System.out.println("NAME: Krish Bam");
+        System.out.println("USN: 1BM23CS158");
+    }
+}
+
